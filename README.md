@@ -29,5 +29,11 @@ This is a 3D visualization written in POV-Ray that involves extending a slapstic
    4. Refer to step 4 for Windows and Mac
 
 # Post-Processing
-  
+  - POV-Ray has no support for video codecs, so the output will result in a **VERY** long image sequence that we must convert into video manually.
+
+  - You may use the ffmpeg command in your computer's terminal to seamlessly convert your images into an mp4
+    ```bash
+    ffmpeg -framerate 30 -i slapstick%04d.png slapstick.mp4
+    ```
+    - Linux users probably already have it installed; [Mac](https://phoenixnap.com/kb/ffmpeg-mac) and [Windows](https://www.geeksforgeeks.org/installation-guide/how-to-install-ffmpeg-on-windows/) users may need to follow a guide before they can get it up and running
      
