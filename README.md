@@ -2,8 +2,6 @@
 This is a 3D visualization written in POV-Ray that involves extending a slapstick instrument to a certain angle such that when released, it will make an impact in exactly .5 seconds, in unison with the final note.
 
 # Rendering
-- **Prerequisites:**
-  - POV-Ray v3.1 or higher must be installed
 ### Windows and Mac
   1. Install the official [POV-Ray editor for Windows](http://www.povray.org/download/) or the unofficial [MacOS Port](http://megapov.inetart.net/povrayunofficial_mac/index.html) (Mac)
   2. Ensure slapstick.ini and slapstick.pov are in the same directory
