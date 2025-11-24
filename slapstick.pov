@@ -10,14 +10,14 @@
 #if(clock < 985)
     #declare Angular_Velocity = Init_Angle/165.5;
     #declare Rotation = Init_Angle*(clock/985);
-    
+#end    
 //Release phase (2:45.5 - 2:46)
-#elseif(clock < 988)
+#if(clock >= 985 & clock < 988)
     #declare Rotation = Init_Angle-((9.8*pow((0.5*((clock-985)/3)), 2))/2)*180/pi; //2nd rotational kinematic equation
     #declare Angular_Velocity = 9.8*(0.5*((clock-985)/3))*180/pi; //1st rotational kinematic equation
-    
+#end    
 //End phase (2:46 - 2:48)
-#else
+#if(clock >= 988)
     #declare Angular_Velocity = 4.9*180/pi; //Display final angular velocity
     #declare Rotation = 0.5*Init_Angle*(sin((clock-988)/12*pi)*exp(-1*((clock-988)/12*pi))); //Recoil after final collision
 #end
@@ -129,7 +129,7 @@ union {
 //Text objects for displaying angle, angular velocity, and time
 //Display Angle
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     "Angle:",0.5, 0
     pigment{rgb<1, 0, 0>}
     scale 0.2
@@ -137,7 +137,7 @@ text{
     translate<-1.15, 0.75, 0>
 }
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     str(Rotation, 3, 2),0.5, 0
     pigment{rgb<1, 0, 0>}
     scale 0.2
@@ -147,7 +147,7 @@ text{
 
 #if(Rotation < 10)
     text{
-        ttf "arial.ttf",
+        ttf "timrom.ttf",
         "o",0.5, 0
         pigment{rgb<1, 0, 0>}
         scale 0.1
@@ -156,7 +156,7 @@ text{
     }
 #else
     text{
-        ttf "arial.ttf",
+        ttf "timrom.ttf",
         "o",0.5, 0
         pigment{rgb<1, 0, 0>}
         scale 0.1
@@ -167,7 +167,7 @@ text{
 
 //Display Angular Velocity
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     "Velocity(  ):",0.5, 0
     pigment{rgb<0, 1, 0>}
     scale 0.1
@@ -175,7 +175,7 @@ text{
     translate<-1.15, 0.575, 0>
 }
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     "o",0.5, 0
     pigment{rgb<0, 1, 0>}
     scale 0.045
@@ -183,7 +183,7 @@ text{
     translate<-0.76, 0.66, 0>
 }
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     "_",0.5, 0
     pigment{rgb<0, 1, 0>}
     scale 0.065
@@ -191,7 +191,7 @@ text{
     translate<-0.7675, 0.6575, 0>
 }
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
    "s",0.5, 0
     pigment{rgb<0, 1, 0>}
     scale 0.065
@@ -200,7 +200,7 @@ text{
 }
 
 text{
-    ttf "arial.ttf",
+    ttf "timrom.ttf",
     str(Angular_Velocity, 3, 2),0.5, 0
     pigment{rgb<0, 1, 0>}
     scale 0.2
@@ -209,7 +209,7 @@ text{
 }
 
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     "t= ", 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
@@ -218,7 +218,7 @@ text{
 }
 
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     "t= ", 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
@@ -227,7 +227,7 @@ text{
 }
 
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     str(Time, 0, 0), 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
@@ -238,25 +238,29 @@ text{
 //Display time
 #if(Time < 10)
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     "s", 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
     rotate<0, 0, 0>
     translate<-1.065, 0.025, -0.05>
 }
-#elseif(Time < 100)
+#end
+
+#if(Time >= 10 & Time <  100)
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     "s", 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
     rotate<0, 0, 0>
     translate<-1.015, 0.025, -0.05>
 }
-#else
+#end
+
+#if(Time >= 100)
 text{
-    ttf"arial.ttf"
+    ttf"timrom.ttf"
     "s", 0.5, 0
     pigment{rgb<1, 1, 1>}
     scale 0.1
