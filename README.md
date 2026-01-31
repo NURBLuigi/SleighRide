@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/ee7a280e-4318-476c-a140-3cb42bccba13
+
 # SleighRide
 This is a 3D visualization written in POV-Ray that involves extending a slapstick instrument to a certain angle such that when released, it will make an impact in exactly .5 seconds, in unison with the final note.
 
